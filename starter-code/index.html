@@ -12,14 +12,22 @@
     />
 
     <title>Meet landing page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style/stylesheet.css" />
   </head>
   <body>
+    <!-- ! header -->
     <header class="header">
       <nav>
         <img src="./assets/logo.svg" alt="logo" />
       </nav>
     </header>
+    <!-- !main -->
     <main class="main">
       <section class="hero">
         <!-- & heroooo image mobile &  tablet  -->
@@ -29,7 +37,7 @@
         <!-- &heroooo image left  -->
         <div class="hero__image--left">
           <img
-            src="./assets/desktop/image-hero-right.png"
+            src="./assets/desktop/image-hero-left.png"
             alt="hero image right"
           />
         </div>
@@ -42,7 +50,9 @@
             collaborate across any device.
           </p>
           <div class="hero__content--buttons">
-            <button class="hero__content--buttons-blue">Download v1.3</button>
+            <button class="hero__content--buttons-blue">
+              Download <span>v1.3</span>
+            </button>
             <button class="hero__content--buttons-purple">What is it?</button>
           </div>
         </div>
@@ -50,7 +60,7 @@
 
         <div class="hero__image--right">
           <img
-            src="./assets/desktop/image-hero-left.png"
+            src="./assets/desktop/image-hero-right.png"
             alt="hero image left"
           />
         </div>
@@ -59,7 +69,7 @@
       <!-- !features -->
 
       <section class="features">
-        <div class="features__number--section">
+        <div class="section__number">
           <span>01</span>
         </div>
 
@@ -83,17 +93,18 @@
         </div>
 
         <div class="features__content">
-          <p class="features__eyebrow">Built for modern use</p>
-          <h2 class="features__title">Smarter meetings, all in one place</h2>
-          <p class="features__description">
+          <p class="features__content--eyebrow">Built for modern use</p>
+          <h2 class="features__content--title">Smarter meetings, all in one place</h2>
+          <p class="features__content--description">
             Send messages, share files, show your screen, and record your
             meetings — all in one workspace.
           </p>
         </div>
       </section>
     </main>
+    <!--  ! fooooter -->
     <footer class="footer">
-      <div class="footer__number--section">
+      <div class="section__number">
         <span>02</span>
       </div>
 
