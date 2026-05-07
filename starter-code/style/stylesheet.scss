@@ -3,6 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: var(--font-primary);
+}
+$breakpoint-tablet: 76.8rem;
+$breakpoint-desktop: 102.4rem;
 
 :root {
   --cyan-600: #4d96a9;
@@ -18,12 +26,6 @@
   --white: #fafafa;
 
   --font-primary: "Red Hat Display", sans-serif;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: var(--font-primary);
 }
 
 header {
@@ -136,10 +138,15 @@ main {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 1.6rem;
-
+      @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
       img {
+        
         width: 100%;
         border-radius: 0.6rem;
+        
       }
     }
     &__content {
@@ -179,6 +186,8 @@ main {
 .footer {
   .section__number {
     transform: translateY(50%);
+    position: relative;
+    z-index: 3;
   }
   display: flex;
   flex-direction: column;
@@ -186,7 +195,24 @@ main {
   text-align: center;
   &__content {
     padding: 6.4rem 3.2rem;
-    background-color: var(--cyan-600);
+    background-image: url(../assets/mobile/image-footer.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(rgb(77, 150, 169), 0.8);
+      z-index: 1;
+    }
     color: var(--white);
     &--title {
       font-size: 3.2rem;
@@ -207,8 +233,8 @@ main {
     font-size: 1.6rem;
     font-weight: 600;
     background-color: var(--purple-600);
-    span{
-      
+    span {
+      color: var(--purple-300);
     }
   }
 }

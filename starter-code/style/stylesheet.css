@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-primary);
+}
+
 :root {
   --cyan-600: #4d96a9;
   --cyan-300: #8fe3f9;
@@ -14,14 +22,6 @@
   --slate-300: #d1d1df;
   --white: #fafafa;
   --font-primary: "Red Hat Display", sans-serif;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: var(--font-primary);
 }
 
 header {
@@ -121,6 +121,12 @@ main .features__images {
   grid-template-rows: 1fr 1fr;
   gap: 1.6rem;
 }
+@media (min-width: 768px) {
+  main .features__images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 main .features__images img {
   width: 100%;
   border-radius: 0.6rem;
@@ -155,6 +161,8 @@ main footer {
 
 .footer .section__number {
   transform: translateY(50%);
+  position: relative;
+  z-index: 3;
 }
 .footer {
   display: flex;
@@ -164,7 +172,26 @@ main footer {
 }
 .footer__content {
   padding: 6.4rem 3.2rem;
-  background-color: var(--cyan-600);
+  background-image: url(../assets/mobile/image-footer.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.footer__content > * {
+  position: relative;
+  z-index: 2;
+}
+.footer__content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(77, 150, 169, 0.8);
+  z-index: 1;
+}
+.footer__content {
   color: var(--white);
 }
 .footer__content--title {
@@ -185,4 +212,7 @@ main footer {
   font-size: 1.6rem;
   font-weight: 600;
   background-color: var(--purple-600);
+}
+.footer__button span {
+  color: var(--purple-300);
 }/*# sourceMappingURL=stylesheet.css.map */
