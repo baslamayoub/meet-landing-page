@@ -64,8 +64,24 @@ header nav img {
 main .hero {
   padding-top: 6.4rem;
 }
+@media (min-width: 1024px) {
+  main .hero {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 main .hero__image--left, main .hero__image--right {
   display: none;
+}
+@media (min-width: 1024px) {
+  main .hero__image--left, main .hero__image--right {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  main .hero__image--mobile {
+    display: none;
+  }
 }
 main .hero__image--mobile {
   width: 100%;
@@ -75,6 +91,9 @@ main .hero__image--mobile img {
 }
 main .hero__content {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 4.8rem 3.2rem 3.2rem;
 }
 main .hero__content--title {
@@ -87,6 +106,12 @@ main .hero__content--description {
   color: var(--slate-600);
   line-height: 150%;
   padding: 2.4rem 0;
+  max-width: 40rem;
+}
+@media (min-width: 1024px) {
+  main .hero__content--buttons-blue, main .hero__content--buttons-purple {
+    cursor: pointer;
+  }
 }
 main .hero__content--buttons-blue, main .hero__content--buttons-purple {
   padding: 1.6rem 4rem;
@@ -121,10 +146,16 @@ main .features__images {
   grid-template-rows: 1fr 1fr;
   gap: 1.6rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   main .features__images {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 15rem);
+    grid-template-rows: 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  main .features__images {
+    grid-template-columns: repeat(4, 22rem);
+    grid-template-rows: 1fr;
   }
 }
 main .features__images img {
@@ -132,7 +163,24 @@ main .features__images img {
   border-radius: 0.6rem;
 }
 main .features__content {
+  width: 100%;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 425px) and (max-width: 768px) {
+  main .features__content {
+    width: 50rem;
+  }
+}
+main .features__content {
   text-align: center;
+}
+@media (min-width: 425px) and (max-width: 768px) {
+  main .features__content--eyebrow {
+    font-size: 1.4;
+  }
 }
 main .features__content--eyebrow {
   color: var(--cyan-600);
@@ -142,6 +190,12 @@ main .features__content--eyebrow {
   font-weight: 600;
   margin-bottom: 1.6rem;
 }
+@media (min-width: 425px) and (max-width: 768px) {
+  main .features__content--title {
+    font-size: 3.6rem;
+    padding: 0 4rem;
+  }
+}
 main .features__content--title {
   font-size: 3.2rem;
   font-weight: 900;
@@ -149,16 +203,26 @@ main .features__content--title {
   line-height: 110%;
   margin-bottom: 3.2rem;
 }
+@media (max-width: 425px) {
+  main .features__content--description {
+    max-width: 30rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .features__content--description {
+    max-width: 45rem;
+  }
+}
 main .features__content--description {
   font-size: 1.6rem;
   color: var(--slate-600);
   line-height: 150%;
   font-weight: 500;
 }
-main footer {
-  position: relative;
-}
 
+.footer {
+  width: 100%;
+}
 .footer .section__number {
   transform: translateY(50%);
   position: relative;
@@ -171,8 +235,19 @@ main footer {
   text-align: center;
 }
 .footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding: 6.4rem 3.2rem;
   background-image: url(../assets/mobile/image-footer.jpg);
+}
+@media (min-width: 425px) and (max-width: 768px) {
+  .footer__content {
+    background-image: url(../assets/tablet/image-footer.jpg);
+  }
+}
+.footer__content {
   background-size: cover;
   background-position: center;
   position: relative;
@@ -197,6 +272,9 @@ main footer {
 .footer__content--title {
   font-size: 3.2rem;
   font-weight: 900;
+}
+.footer__content--description {
+  max-width: 35rem;
 }
 .footer__content--description {
   font-size: 1.6rem;

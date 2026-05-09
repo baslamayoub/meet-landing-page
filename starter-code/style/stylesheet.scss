@@ -9,8 +9,9 @@ html {
 body {
   font-family: var(--font-primary);
 }
-$breakpoint-tablet: 76.8rem;
-$breakpoint-desktop: 102.4rem;
+$breakpoint-mobile: 425px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
 
 :root {
   --cyan-600: #4d96a9;
@@ -71,13 +72,22 @@ header {
 main {
   .hero {
     padding-top: 6.4rem;
-    // padding: 6.4rem 3.2rem 3.2rem;
+      @media (min-width: $breakpoint-desktop) {
+        display: flex;
+        justify-content: space-between;
+      }
     &__image-- {
       &left,
       &right {
         display: none;
+        @media (min-width: $breakpoint-desktop) {
+          display: block;
+        }
       }
       &mobile {
+        @media (min-width: $breakpoint-desktop) {
+          display: none;
+        }
         width: 100%;
         img {
           width: 100%;
@@ -86,6 +96,9 @@ main {
     }
     &__content {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 4.8rem 3.2rem 3.2rem;
       &--title {
         font-size: 4rem;
@@ -97,10 +110,14 @@ main {
         color: var(--slate-600);
         line-height: 150%;
         padding: 2.4rem 0;
+        max-width: 40rem;
       }
       &--buttons {
         &-blue,
         &-purple {
+          @media (min-width: $breakpoint-desktop) {
+            cursor: pointer;
+          }
           padding: 1.6rem 4rem;
           border: none;
           background: none;
@@ -138,20 +155,43 @@ main {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 1.6rem;
-      @media (min-width: 768px) {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+      // !mediaaaaaaaaaa
+      // @media (max-width: ($breakpoint-mobile - 1px)) {
+      //   grid-template-columns: 1fr 1fr;
+      //   grid-template-rows: 1fr 1fr;
+      //   gap: 1.6rem;
+      // }
+      @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+        grid-template-columns: repeat(4, 15rem);
+        grid-template-rows: 1fr;
+      }
+      @media (min-width: $breakpoint-desktop) {
+        grid-template-columns: repeat(4, 22rem);
+        grid-template-rows: 1fr;
       }
       img {
-        
         width: 100%;
         border-radius: 0.6rem;
-        
       }
     }
     &__content {
+      width: 100%;
+      padding: 3.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+        width: 50rem;
+      }
+      @media (min-width: $breakpoint-desktop) {
+      }
       text-align: center;
+
+      // *..................
       &--eyebrow {
+        @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+          font-size: 1.4;
+        }
         color: var(--cyan-600);
         font-size: 1.2rem;
         letter-spacing: 4px;
@@ -159,14 +199,26 @@ main {
         font-weight: 600;
         margin-bottom: 1.6rem;
       }
+      // *..................
       &--title {
+        @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+          font-size: 3.6rem;
+          padding: 0 4rem;
+        }
         font-size: 3.2rem;
         font-weight: 900;
         color: var(--slate-900);
         line-height: 110%;
         margin-bottom: 3.2rem;
       }
+      // *..................
       &--description {
+        @media (max-width: $breakpoint-mobile) {
+          max-width: 30rem;
+        }
+        @media (min-width: $breakpoint-desktop) {
+          max-width: 45rem;
+        }
         font-size: 1.6rem;
         color: var(--slate-600);
         line-height: 150%;
@@ -174,16 +226,17 @@ main {
       }
     }
   }
-
-  //   !end features
-  // *start footer
-
-  footer {
-    position: relative;
-  }
 }
+//   !end features
+// *start footer
+
+// footer {
+//   position: relative;
+// }
 
 .footer {
+  width: 100%;
+
   .section__number {
     transform: translateY(50%);
     position: relative;
@@ -193,9 +246,30 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  // *content.............................
+
   &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
     padding: 6.4rem 3.2rem;
     background-image: url(../assets/mobile/image-footer.jpg);
+    // !media ..................................
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+      background-image: url(../assets/tablet/image-footer.jpg);
+    }
+    // @media (min-width: 1024px) {
+    //   padding: 0 20rem;
+    //   display: flex;
+    //   text-align: start;
+    //   // flex-direction: row;
+    //   align-items: center;
+    //   justify-content: space-between;
+    //   gap: 2rem;
+    //   background-color: red;
+    // }
     background-size: cover;
     background-position: center;
     position: relative;
@@ -219,6 +293,9 @@ main {
       font-weight: 900;
     }
     &--description {
+      max-width: 35rem;
+      @media (min-width: $breakpoint-tablet) {
+      }
       font-size: 1.6rem;
       line-height: 150%;
       padding: 2.4rem 0;
